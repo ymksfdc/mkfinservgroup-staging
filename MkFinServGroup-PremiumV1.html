@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -17,6 +19,9 @@
             --brand-deep: #002147; /* Navy Blue from screenshot */
             --brand-accent: #FFC107; /* Gold from screenshot */
             --brand-text: #1e293b;
+            --navy: #001f3f;
+            --gold: #f5c542;
+            --gold-dark: #d4a017;
         }
 
         body {
@@ -33,6 +38,7 @@
 
         .gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, var(--brand-accent) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -141,7 +147,7 @@
             transition: all 0.2s;
         }
         .form-input:focus {
-            border-color: var(--gold);
+            border-color: #f5c542;
             box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
         }
         .form-input.error-border {
@@ -209,12 +215,25 @@
             filter: brightness(1.1);
         }
 
+        .bg-navy { background-color: #001f3f; }
+        .text-gold { color: #f5c542; }
+        .border-gold { border-color: #f5c542; }
+        .text-navy { color: #001f3f; }
+
         /* Adjust padding for modal content */
         .p-6 {
-            padding: 0.5rem;
+            padding: 1.5rem !important;
         }
         .p-8 {
-            padding: 0.5rem;
+            padding: 2rem !important;
+        }
+
+        .field-container {
+            margin-bottom: 0.5rem;
+        }
+
+        .md\:p-10 {
+            padding: 2.5rem !important;
         }
 
     </style>
