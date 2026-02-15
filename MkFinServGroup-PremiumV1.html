@@ -236,6 +236,17 @@
             padding: 2.5rem !important;
         }
 
+        /* Pricing Card Styling */
+        .pricing-card {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: var(--brand-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 33, 71, 0.1);
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -261,8 +272,8 @@
                     <a href="#services" class="hover:text-[#FFC107] transition">Services</a>
                     <a href="#approach" class="hover:text-[#FFC107] transition">Our Tech</a>
                     <a href="#process" class="hover:text-[#FFC107] transition">Process</a>
+                    <a href="#pricing" class="hover:text-[#FFC107] transition">Pricing</a>
                     <a href="#contact" class="bg-[#FFC107] text-[#002147] px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-[#002147] hover:border hover:border-[#002147] transition duration-300">Book Consultation</a>
-
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
@@ -304,7 +315,7 @@
     </section>
 
     <!-- Trust Positioning -->
-    <section class="py-20 bg-slate-50 border-y border-slate-100">
+    <section id="about" class="py-20 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -523,20 +534,107 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#002147] mb-4">Structured Pricing Plans</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Clear pricing designed around complexity, scope, and professional execution.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Individual Services -->
+                <div class="pricing-card bg-white p-8 rounded-2xl flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Individual Tax</h3>
+                        <p class="text-sm text-slate-500">Professional ITR Filing & Gains Reporting</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Basic ITR (Salaried)</span>
+                            <span class="font-bold text-[#002147]">₹1,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Capital Gains ITR</span>
+                            <span class="font-bold text-[#002147]">₹3,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Advanced / Foreign Income</span>
+                            <span class="font-bold text-[#002147]">₹6,000+</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 border border-[#002147] text-[#002147] rounded-full font-bold hover:bg-[#002147] hover:text-white transition">Get Started</button>
+                </div>
+
+                <!-- Business Compliance -->
+                <div class="pricing-card bg-slate-50 p-8 rounded-2xl flex flex-col border-[#FFC107]/30 shadow-sm relative">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 bg-[#FFC107] text-[#002147] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Business Compliance</h3>
+                        <p class="text-sm text-slate-500">End-to-End Retainership Plans</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Freelancer GST Plan</span>
+                            <span class="font-bold text-[#002147]">₹3,500<small class="text-[10px] font-normal">/mo</small></span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Small Pvt Ltd / LLP</span>
+                            <span class="font-bold text-[#002147]">₹8,000<small class="text-[10px] font-normal">/mo</small></span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Growing Enterprise</span>
+                            <span class="font-bold text-[#002147]">₹15,000+</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 bg-[#002147] text-white rounded-full font-bold hover:bg-[#002147]/90 transition">Inquire for Business</button>
+                </div>
+
+                <!-- Advisory & Support -->
+                <div class="pricing-card bg-white p-8 rounded-2xl flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Advisory & Support</h3>
+                        <p class="text-sm text-slate-500">Notices, Planning & Structuring</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Notice Response</span>
+                            <span class="font-bold text-[#002147]">₹2,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Advisory & Structuring</span>
+                            <span class="font-bold text-[#002147]">Custom</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Scrutiny / Assessment</span>
+                            <span class="font-bold text-[#002147]">Quote</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 border border-[#002147] text-[#002147] rounded-full font-bold hover:bg-[#002147] hover:text-white transition">Book Advisory</button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-xs text-slate-400 italic">Final pricing depends on transaction volume, complexity, and professional scope.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Philosophy -->
-    <section class="py-24">
+    <section class="py-24 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-[#002147] mb-8">Pricing Philosophy</h2>
             <p class="text-lg text-slate-600 mb-10 leading-relaxed">
                 We believe compliance is not a commodity. Our plans are structured based on complexity, business size, and the level of advisory required. We operate with discipline — not shortcuts.
             </p>
             <div class="inline-flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-500">
-                <span class="px-4 py-2 bg-slate-100 rounded-full">No hidden fees</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full">Value-based pricing</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full">Professional Grade</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">No hidden fees</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">Value-based pricing</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">Professional Grade</span>
             </div>
         </div>
     </section>
+
     <!-- Talk to Us Today -->
     <div id="formModal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
@@ -656,7 +754,6 @@
             <button onclick="openForm()" class="px-10 py-5 bg-[#FFC107] text-[#002147] rounded-full font-bold hover:bg-white hover:text-[#002147] transition shadow-2xl">
                 Talk to Us Today
             </button>
-
         </div>
     </section>
 
@@ -681,19 +778,7 @@
                             rel="noopener noreferrer"
                             class="text-white hover:text-gold transition-colors"
                             title="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
 
                         <!-- Instagram -->
@@ -702,19 +787,7 @@
                             rel="noopener noreferrer"
                             class="text-white hover:text-gold transition-colors"
                             title="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
 
                         <!-- YouTube -->
@@ -723,18 +796,7 @@
                             rel="noopener noreferrer"
                             class="text-white hover:text-gold transition-colors"
                             title="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                 </div>
@@ -743,7 +805,7 @@
                     <ul class="space-y-4 text-sm">
                         <li><a href="#services" class="hover:text-[#FFC107] transition">Services</a></li>
                         <li><a href="#approach" class="hover:text-[#FFC107] transition">Approach</a></li>
-                        <li><a href="#process" class="hover:text-[#FFC107] transition">Process</a></li>
+                        <li><a href="#pricing" class="hover:text-[#FFC107] transition">Pricing</a></li>
                         <li><a href="#" class="hover:text-[#FFC107] transition">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -762,10 +824,9 @@
                 </div>
             </div>                
         </div>
-        <br></br>
-            <!-- Divider -->
-            <div class="border-t border-white/10 pt-10">
-            <!-- Brand & Disclaimer -->
+        
+        <!-- Divider -->
+        <div class="border-t border-white/10 pt-10 mt-20">
             <div class="max-w-3xl mx-auto text-center text-[11px] md:text-xs text-gray-400 leading-relaxed space-y-4 px-4">
                 <p>
                     Mk FinServ™ is a brand operated by
@@ -783,7 +844,6 @@
                 <div class="text-center md:text-left">
                     © 2026 Mk FinServ Group™. All Rights Reserved.
                 </div>
-
                 <div class="px-4 py-1.5 border border-white/20 rounded-md text-gray-300 tracking-normal text-[11px]">
                     MSME Registered | UDYAM-KR-03-0657590
                 </div>
@@ -794,15 +854,8 @@
     <!-- WhatsApp Floating Button -->
     <a href="https://whatsapp.com/channel/0029Vb7JDYyGZNCjB3bosO2T"
     target="_blank"
-    class="fixed bottom-6 right-6 bg-[#25D366] 
-            p-3 rounded-full shadow-2xl 
-            transition duration-300 
-            flex items-center justify-center 
-            hover:scale-105 z-50">
-
-        <img src="/assets/icons/whatsapp.svg"
-            alt="WhatsApp"
-            class="w-6 h-6">
+    class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-2xl transition duration-300 flex items-center justify-center hover:scale-105 z-50">
+        <i class="ph ph-whatsapp-logo text-white text-3xl"></i>
     </a>
 
     <script>
@@ -842,7 +895,6 @@
             if (e.target.id === 'formModal') closeForm();
         }
 
-        // Custom Dropdown Logic - Simplified (No Search)
         const trigger = document.getElementById('dropdownTrigger');
         const menu = document.getElementById('dropdownMenu');
         const selectedText = document.getElementById('selectedText');
@@ -856,17 +908,13 @@
 
         options.forEach(option => {
             option.addEventListener('click', (e) => {
-                e.stopPropagation(); // Stop propagation to prevent accidental triggers
+                e.stopPropagation();
                 const val = option.dataset.value;
                 selectedText.innerText = val;
                 selectedText.classList.remove('text-slate-400');
                 selectedText.classList.add('text-slate-800');
                 hiddenInput.value = val;
-                
-                // Immediately close menu after selection
                 menu.classList.remove('active');
-                
-                // Hide error if it was shown
                 document.getElementById('serviceError').style.display = 'none';
                 trigger.classList.remove('error-border');
             });
@@ -897,14 +945,11 @@
             const field = document.getElementById(id);
             const error = document.getElementById(errorId);
             const val = field.value.trim();
-            
             let isRepetitive = false;
             if (id === 'phone' && val.length === 10) {
                 isRepetitive = /^(\d)\1{9}$/.test(val);
             }
-
             const isValid = regex.test(val) && !isRepetitive;
-
             if (!isValid) {
                 field.classList.add('error-border');
                 error.style.display = 'block';
@@ -917,41 +962,22 @@
 
         document.getElementById('callbackForm').addEventListener("submit", async function(event) {
             event.preventDefault();
-            
             const isFNameValid = validateField('firstName', /^[a-zA-Z\s]{3,}$/, 'firstNameError');
             const isLNameValid = validateField('lastName', /^[a-zA-Z\s]{1,}$/, 'lastNameError');
             const isPhoneValid = validateField('phone', /^[0-9]{10}$/, 'phoneError');
             const isEmailValid = validateField('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'emailError');
-            // Check if hidden input (Service Requested) is filled
             const isServiceValid = !!hiddenInput.value;
-            const serviceError = document.getElementById('serviceError');
             if (!isServiceValid) {
-                serviceError.style.display = 'block';
+                document.getElementById('serviceError').style.display = 'block';
                 trigger.classList.add('error-border');
-            } else {
-                serviceError.style.display = 'none';
-                trigger.classList.remove('error-border');
             }
             const consent = document.getElementById('consent');
-            const consentError = document.getElementById('consentError');
-            const isConsentValid = consent.checked;
-            
-            if (!isConsentValid) {
-                consentError.style.display = 'block';
-            } else {
-                consentError.style.display = 'none';
-            }
-
-            if (!isFNameValid || !isLNameValid || !isPhoneValid || !isEmailValid || !isConsentValid) {
-                return;
-            }
+            if (!consent.checked) document.getElementById('consentError').style.display = 'block';
+            if (!isFNameValid || !isLNameValid || !isPhoneValid || !isEmailValid || !isServiceValid || !consent.checked) return;
 
             const submitBtn = document.getElementById('submitBtn');
-            const statusDiv = document.getElementById('formStatus');
-            
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<div class="animate-spin rounded-full h-5 w-5 border-2 border-navy border-t-transparent mr-2"></div> Sending...';
-            statusDiv.classList.add('hidden');
 
             try {
                 const response = await fetch(event.target.action, {
@@ -959,26 +985,12 @@
                     body: new FormData(event.target),
                     headers: { 'Accept': 'application/json' }
                 });
-
                 if (response.ok) {
                     closeForm();
                     showSuccess();
-                    event.target.reset();
-                } else {
-                    const data = await response.json();
-                    if (data.errors) {
-                        statusDiv.innerText = data.errors.map(error => error.message).join(", ");
-                    } else {
-                        statusDiv.innerText = "Error submitting form. Please check your connection.";
-                    }
-                    statusDiv.className = "mt-6 p-4 rounded-xl text-center font-medium bg-red-100 text-red-700";
-                    statusDiv.classList.remove('hidden');
                 }
             } catch (error) {
                 console.error("Submission error:", error);
-                statusDiv.innerText = "Submission failed. Please email support@mkfinservgroup.com directly.";
-                statusDiv.className = "mt-6 p-4 rounded-xl text-center font-medium bg-red-100 text-red-700";
-                statusDiv.classList.remove('hidden');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<span>Submit Request</span><i class="ph-bold ph-paper-plane-tilt"></i>';
