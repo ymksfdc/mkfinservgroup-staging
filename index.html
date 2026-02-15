@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mk FinServ Group | Tech-Enabled Compliance & Advisory</title>
+    <title>Mk FinServ Group™ | Tech-Enabled Compliance & Advisory</title>
     <meta name="description" content="Premium tax and compliance advisory for professionals, freelancers, and growing businesses. Structured, transparent, and tech-driven.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         :root {
-             /* Colors mapped exactly from the attached screenshots */
+            /* Colors mapped exactly from the attached screenshots */
             --brand-deep: #002147; /* Navy Blue from screenshot */
             --brand-accent: #FFC107; /* Gold from screenshot */
             --brand-text: #1e293b;
+            --navy: #001f3f;
+            --gold: #f5c542;
+            --gold-dark: #d4a017;
         }
 
         body {
@@ -33,6 +38,7 @@
 
         .gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, var(--brand-accent) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -52,6 +58,195 @@
             color: white;
         }
 
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 55px;
+            height: 55px;
+            background-color: hsl(142, 92%, 47%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .whatsapp-float:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                right: 15px;
+                bottom: 15px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .w-11 {
+            width: 3.0rem;
+        }
+        .h-11 {
+            height: 3.0rem;
+        }
+        .p-0{
+            padding: 1px;
+        }
+        .logo-img {
+            object-fit: cover;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* MODAL & DROPDOWN */
+        #formModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 31, 63, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #formModal.active { display: flex; }
+
+        .modal-content {
+            width: 100%;
+            max-width: 550px;
+            max-height: min-content;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow: inherit;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            border-color: #f5c542;
+            box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+        }
+        .form-input.error-border {
+            border-color: #ef4444;
+            background-color: #fef2f2;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        /* DROPDOWN STYLES - SEARCH REMOVED */
+        .dropdown-container {
+            position: relative;
+        }
+        .dropdown-trigger {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 105%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            z-index: 100;
+            display: none;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+        }
+        .dropdown-menu.active {
+            display: block;
+        }
+        .options-list {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        .option-item {
+            padding: 12px 16px;
+            color: #475569;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-item:hover {
+            background: #fff9eb;
+            color: var(--gold-dark);
+            padding-left: 20px;
+        }
+
+        .gold-button {
+            background: linear-gradient(to right, var(--brand-accent), #d4a017);
+            transition: transform 0.2s ease;
+        }
+        .gold-button:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .bg-navy { background-color: #001f3f; }
+        .text-gold { color: #f5c542; }
+        .border-gold { border-color: #f5c542; }
+        .text-navy { color: #001f3f; }
+
+        /* Adjust padding for modal content */
+        .p-6 {
+            padding: 1.5rem !important;
+        }
+        .p-8 {
+            padding: 2rem !important;
+        }
+
+        .field-container {
+            margin-bottom: 0.5rem;
+        }
+
+        .md\:p-10 {
+            padding: 2.5rem !important;
+        }
+
+        /* Pricing Card Styling */
+        .pricing-card {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: var(--brand-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 33, 71, 0.1);
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -60,20 +255,29 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center space-x-3">
-                    <img src="logo.jpg" alt="Mk Logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center\'><span class=\'text-white font-bold text-xl\'>Mk</span></div>'">
-                    <span class="text-xl font-bold tracking-tight text-slate-900 uppercase">FinServ Group</span>
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpg" alt="Logo" class="w-11 h-11 rounded-full border-2 border-[#FFC107] p-0 shadow-lg logo-img">
+                    <div>
+                        <span class="text-2xl font-bold tracking-tight block leading-none text-[#FFC107]">
+                            Mk FinServ™
+                        </span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] opacity-80 text-white">
+                            Technology-Enabled Compliance & Advisory
+                        </span>
+                    </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                    <a href="#about" class="hover:text-blue-600 transition">About</a>
-                    <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                    <a href="#approach" class="hover:text-blue-600 transition">Our Tech</a>
-                    <a href="#process" class="hover:text-blue-600 transition">Process</a>
-                    <a href="#contact" class="bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-blue-600 transition duration-300">Book Consultation</a>
+
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/90">
+                    <a href="#about" class="hover:text-[#FFC107] transition">About</a>
+                    <a href="#services" class="hover:text-[#FFC107] transition">Services</a>
+                    <a href="#approach" class="hover:text-[#FFC107] transition">Our Tech</a>
+                    <a href="#process" class="hover:text-[#FFC107] transition">Process</a>
+                    <a href="#pricing" class="hover:text-[#FFC107] transition">Pricing</a>
+                    <a href="#contact" class="bg-[#FFC107] text-[#002147] px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-[#002147] hover:border hover:border-[#002147] transition duration-300">Book Consultation</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-slate-900">
+                    <button id="mobile-menu-button" class="text-white">
                         <i data-lucide="menu"></i>
                     </button>
                 </div>
@@ -82,48 +286,50 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-4xl mx-auto">
                 <div class="flex justify-center mb-8">
-                    <img src="logo.jpg" alt="Mk FinServ Group Logo" class="w-20 h-20 rounded-2xl shadow-lg border border-slate-100" onerror="this.style.display='none'">
+                    <img src="logo.jpg" alt="Mk FinServ Group Logo" class="w-20 h-20 rounded-full border-2 border-[#FFC107] p-1 shadow-lg" onerror="this.style.display='none'">
                 </div>
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase mb-6">Premium Compliance Advisory</span>
-                <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-tight">
-                    Compliance That Moves <br class="hidden lg:block"> With Your <span class="gradient-text">Growth.</span>
+                <span class="inline-block py-1 px-3 rounded bg-[#FFC107]/20 text-[#FFC107] text-xs font-bold tracking-widest uppercase mb-6">Premium Compliance Advisory</span>
+                <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    Your Strategic Compliance Partner for <span class="text-[#FFC107]">Professionals</span> <br class="hidden lg:block"> <span class="text-[#FFC107]"> and Growing</span> Enterprises.
                 </h1>
-                <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
                     Tech-enabled tax and compliance advisory for professionals, freelancers, and growing businesses. Structured execution without the chaos.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#contact" class="px-8 py-4 bg-slate-900 text-white rounded-full font-semibold hover:bg-slate-800 transition shadow-lg flex items-center justify-center group">
+                    <a href="#contact" class="px-8 py-4 bg-[#FFC107] text-[#002147] rounded-full font-semibold hover:bg-[#E6B000] transition shadow-lg flex items-center justify-center group">
                         Book a Consultation
                         <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition"></i>
                     </a>
-                    <a href="#services" class="px-8 py-4 border border-slate-200 text-slate-900 rounded-full font-semibold hover:bg-slate-50 transition">
+
+                    <a href="#services" class="px-8 py-4 border border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition">
                         Explore Business Plans
                     </a>
+
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Trust Positioning -->
-    <section class="py-20 bg-slate-50 border-y border-slate-100">
+    <section id="about" class="py-20 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Beyond Just Filing Returns.</h2>
+                    <h2 class="text-3xl font-bold text-[#002147] mb-6">Beyond Just Filing Returns.</h2>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        At Mk FinServ Group, we build structured compliance systems that help you stay confident, compliant, and growth-ready.
+                        At Mk FinServ, we build structured compliance systems that help you stay confident, compliant, and growth-ready.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-blue-100 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i></div>
+                            <div class="mt-1 bg-[#FFC107]/20 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-[#002147]"></i></div>
                             <p class="text-slate-700 font-medium">Clarity and transparency in every step.</p>
                         </div>
                         <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-blue-100 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i></div>
+                            <div class="mt-1 bg-[#FFC107]/20 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-[#002147]"></i></div>
                             <p class="text-slate-700 font-medium">No shortcuts. No last-minute panic.</p>
                         </div>
                     </div>
@@ -131,19 +337,19 @@
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center p-6 bg-slate-50 rounded-xl">
-                            <p class="text-3xl font-bold text-slate-900 mb-1">100%</p>
+                            <p class="text-3xl font-bold text-[#002147] mb-1">100%</p>
                             <p class="text-sm text-slate-500 uppercase tracking-wide">Digital Onboarding</p>
                         </div>
                         <div class="text-center p-6 bg-slate-50 rounded-xl">
-                            <p class="text-3xl font-bold text-slate-900 mb-1">0</p>
+                            <p class="text-3xl font-bold text-[#002147] mb-1">0</p>
                             <p class="text-sm text-slate-500 uppercase tracking-wide">WhatsApp Chaos</p>
                         </div>
                         <div class="text-center p-6 bg-slate-50 rounded-xl">
-                            <p class="text-3xl font-bold text-slate-900 mb-1">24/7</p>
+                            <p class="text-3xl font-bold text-[#002147] mb-1">24/7</p>
                             <p class="text-sm text-slate-500 uppercase tracking-wide">Secure Access</p>
                         </div>
                         <div class="text-center p-6 bg-slate-50 rounded-xl">
-                            <p class="text-3xl font-bold text-slate-900 mb-1">10X</p>
+                            <p class="text-3xl font-bold text-[#002147] mb-1">10X</p>
                             <p class="text-sm text-slate-500 uppercase tracking-wide">Better Efficiency</p>
                         </div>
                     </div>
@@ -156,13 +362,13 @@
     <section class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">Ecosystem Tailored for You</h2>
+                <h2 class="text-3xl font-bold text-[#002147] mb-4">Ecosystem Tailored for You</h2>
                 <p class="text-slate-600">Structured solutions for every scale of operation.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Segment 1 -->
-                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-blue-100 transition shadow-sm">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-blue-600">
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
                         <i data-lucide="users"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Professionals & Investors</h3>
@@ -174,8 +380,8 @@
                     </ul>
                 </div>
                 <!-- Segment 2 -->
-                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-blue-100 transition shadow-sm">
-                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6 text-indigo-600">
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
                         <i data-lucide="briefcase"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Freelancers & Consultants</h3>
@@ -187,8 +393,8 @@
                     </ul>
                 </div>
                 <!-- Segment 3 -->
-                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-blue-100 transition shadow-sm">
-                    <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 text-slate-900">
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
                         <i data-lucide="building-2"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Small Businesses & Startups</h3>
@@ -204,25 +410,25 @@
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-24 bg-slate-900 text-white">
+    <section id="services" class="py-24 bg-[#002147] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16">
                 <h2 class="text-3xl font-bold mb-4">Our Expertise</h2>
-                <div class="h-1 w-20 bg-blue-500"></div>
+                <div class="h-1 w-20 bg-[#FFC107]"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="space-y-4">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Individual Tax</h4>
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Individual Tax</h4>
                     <h3 class="text-2xl font-bold">Tax & Capital Gains</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">Precision filing for complex portfolios, including foreign income and RSU reporting.</p>
                 </div>
                 <div class="space-y-4">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Business Operations</h4>
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Business Operations</h4>
                     <h3 class="text-2xl font-bold">Business Compliance</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">End-to-end GST, TDS, and ROC coordination to keep your entity running smoothly.</p>
                 </div>
                 <div class="space-y-4">
-                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs">Growth Strategy</h4>
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Growth Strategy</h4>
                     <h3 class="text-2xl font-bold">Advisory & Structuring</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">Tax projections and business structure guidance to optimize your financial future.</p>
                 </div>
@@ -235,7 +441,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC107]/10 rounded-full blur-3xl opacity-50"></div>
                     <div class="relative bg-white border border-slate-100 p-8 rounded-3xl shadow-xl">
                         <div class="space-y-6">
                             <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
@@ -247,39 +453,39 @@
                             </div>
                             <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
                                 <div class="flex items-center space-x-3">
-                                    <i data-lucide="bell" class="text-blue-600"></i>
+                                    <i data-lucide="bell" class="text-[#002147]"></i>
                                     <span class="font-semibold">Automated Deadlines</span>
                                 </div>
-                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Tracking</span>
+                                <span class="text-xs font-bold text-[#002147] bg-[#FFC107]/20 px-2 py-1 rounded">Tracking</span>
                             </div>
                             <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
                                 <div class="flex items-center space-x-3">
-                                    <i data-lucide="refresh-cw" class="text-indigo-600"></i>
+                                    <i data-lucide="refresh-cw" class="text-[#002147]"></i>
                                     <span class="font-semibold">Transparent Updates</span>
                                 </div>
-                                <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Real-time</span>
+                                <span class="text-xs font-bold text-[#002147] bg-[#FFC107]/20 px-2 py-1 rounded">Real-time</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Our Technology-Driven Approach</h2>
+                    <h2 class="text-3xl font-bold text-[#002147] mb-6">Our Technology-Driven Approach</h2>
                     <p class="text-lg text-slate-600 mb-8">We combine compliance expertise with structured systems to eliminate manual errors and communication gaps.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="flex items-center space-x-2 text-slate-700">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
                             <span>Digital onboarding</span>
                         </div>
                         <div class="flex items-center space-x-2 text-slate-700">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
                             <span>Secure portal</span>
                         </div>
                         <div class="flex items-center space-x-2 text-slate-700">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
                             <span>Automated reminders</span>
                         </div>
                         <div class="flex items-center space-x-2 text-slate-700">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-500"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
                             <span>Structured workflow</span>
                         </div>
                     </div>
@@ -292,34 +498,34 @@
     <section id="process" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">How Our Process Works</h2>
+                <h2 class="text-3xl font-bold text-[#002147] mb-4">How Our Process Works</h2>
                 <p class="text-slate-600">Simple. Transparent. Systematic.</p>
             </div>
             <div class="relative">
                 <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2"></div>
                 <div class="grid lg:grid-cols-5 gap-8">
                     <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
                         <h4 class="font-bold mb-2 text-sm">Consultation</h4>
                         <p class="text-xs text-slate-500">Understanding requirements</p>
                     </div>
                     <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
                         <h4 class="font-bold mb-2 text-sm">Onboarding</h4>
                         <p class="text-xs text-slate-500">Digital documentation</p>
                     </div>
                     <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
                         <h4 class="font-bold mb-2 text-sm">Execution</h4>
                         <p class="text-xs text-slate-500">Structured compliance</p>
                     </div>
                     <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
                         <h4 class="font-bold mb-2 text-sm">Reporting</h4>
                         <p class="text-xs text-slate-500">Filing confirmation</p>
                     </div>
                     <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
                         <h4 class="font-bold mb-2 text-sm">Support</h4>
                         <p class="text-xs text-slate-500">Ongoing advisory</p>
                     </div>
@@ -328,23 +534,215 @@
         </div>
     </section>
 
-    <!-- Pricing Philosophy -->
-    <section class="py-24">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">Pricing Philosophy</h2>
-            <p class="text-lg text-slate-600 mb-10 leading-relaxed">
-                We believe compliance is not a commodity. Our plans are structured based on complexity, business size, and the level of advisory required. We operate with discipline — not shortcuts.
-            </p>
-            <div class="inline-flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-500">
-                <span class="px-4 py-2 bg-slate-100 rounded-full">No hidden fees</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full">Value-based pricing</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full">Professional Grade</span>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#002147] mb-4">Structured Pricing Plans</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Clear pricing designed around complexity, scope, and professional execution.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Individual Services -->
+                <div class="pricing-card bg-white p-8 rounded-2xl flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Individual Tax</h3>
+                        <p class="text-sm text-slate-500">Professional ITR Filing & Gains Reporting</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Basic ITR (Salaried)</span>
+                            <span class="font-bold text-[#002147]">₹1,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Capital Gains ITR</span>
+                            <span class="font-bold text-[#002147]">₹3,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Advanced / Foreign Income</span>
+                            <span class="font-bold text-[#002147]">₹6,000+</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 border border-[#002147] text-[#002147] rounded-full font-bold hover:bg-[#002147] hover:text-white transition">Get Started</button>
+                </div>
+
+                <!-- Business Compliance -->
+                <div class="pricing-card bg-slate-50 p-8 rounded-2xl flex flex-col border-[#FFC107]/30 shadow-sm relative">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 bg-[#FFC107] text-[#002147] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Business Compliance</h3>
+                        <p class="text-sm text-slate-500">End-to-End Retainership Plans</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Freelancer GST Plan</span>
+                            <span class="font-bold text-[#002147]">₹3,500<small class="text-[10px] font-normal">/mo</small></span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Small Pvt Ltd / LLP</span>
+                            <span class="font-bold text-[#002147]">₹8,000<small class="text-[10px] font-normal">/mo</small></span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-200">
+                            <span class="text-sm text-slate-700">Growing Enterprise</span>
+                            <span class="font-bold text-[#002147]">₹15,000+</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 bg-[#002147] text-white rounded-full font-bold hover:bg-[#002147]/90 transition">Inquire for Business</button>
+                </div>
+
+                <!-- Advisory & Support -->
+                <div class="pricing-card bg-white p-8 rounded-2xl flex flex-col">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#002147] mb-2">Advisory & Support</h3>
+                        <p class="text-sm text-slate-500">Notices, Planning & Structuring</p>
+                    </div>
+                    <div class="space-y-6 flex-grow">
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Notice Response</span>
+                            <span class="font-bold text-[#002147]">₹2,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Advisory & Structuring</span>
+                            <span class="font-bold text-[#002147]">Custom</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-50">
+                            <span class="text-sm text-slate-700">Scrutiny / Assessment</span>
+                            <span class="font-bold text-[#002147]">Quote</span>
+                        </div>
+                    </div>
+                    <button onclick="openForm()" class="mt-8 w-full py-3 border border-[#002147] text-[#002147] rounded-full font-bold hover:bg-[#002147] hover:text-white transition">Book Advisory</button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-xs text-slate-400 italic">Final pricing depends on transaction volume, complexity, and professional scope.</p>
             </div>
         </div>
     </section>
 
+    <!-- Pricing Philosophy -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#002147] mb-8">Pricing Philosophy</h2>
+            <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                We believe compliance is not a commodity. Our plans are structured based on complexity, business size, and the level of advisory required. We operate with discipline — not shortcuts.
+            </p>
+            <div class="inline-flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-500">
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">No hidden fees</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">Value-based pricing</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full">Professional Grade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talk to Us Today -->
+    <div id="formModal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <div class="bg-navy p-6 flex justify-between items-center text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center">
+                        <i class="ph-bold ph-phone-call text-gold"></i>
+                    </div>
+                    <span class="text-gold font-bold text-lg tracking-tight uppercase">Request a Callback</span>
+                </div>
+                <button onclick="closeForm()" class="text-white hover:text-gold transition-colors">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-8">
+                <form id="callbackForm" action="https://formspree.io/f/xlgwjdqd" method="POST" class="space-y-4" novalidate>
+                    <input type="hidden" name="_subject" value="New Callback Request: Mk FinServ">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="field-container">
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">First Name</label>
+                            <input type="text" name="First Name" id="firstName" required placeholder="Name" class="form-input">
+                            <div id="firstNameError" class="error-message">At least 3 alphabets required.</div>
+                        </div>
+                        <div class="field-container">
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">Last Name</label>
+                            <input type="text" name="Last Name" id="lastName" required placeholder="Surname" class="form-input">
+                            <div id="lastNameError" class="error-message">At least 1 alphabets required.</div>
+                        </div>
+                    </div>
+
+                    <div class="field-container">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">Phone Number</label>
+                        <input type="tel" name="Phone" id="phone" required maxlength="10" placeholder="10-digit number" class="form-input">
+                        <div id="phoneError" class="error-message">Enter valid 10-digit number (no patterns).</div>
+                    </div>
+
+                    <div class="field-container">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">Email Address</label>
+                        <input type="email" name="Email" id="email" required placeholder="john@example.com" class="form-input">
+                        <div id="emailError" class="error-message">Please enter a valid email address.</div>
+                    </div>
+
+                    <input type="hidden" name="Service Requested" id="serviceHiddenInput">
+
+                    <!-- DROPDOWN COMPONENT - SEARCH REMOVED -->
+                    <div class="field-container">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-wider">Service Required *</label>
+                        <div class="dropdown-container">
+                            <div class="form-input dropdown-trigger" id="dropdownTrigger">
+                                <span id="selectedText" class="text-slate-400">Select a service</span>
+                                <i class="ph-bold ph-caret-down text-slate-400"></i>
+                            </div>
+                            
+                            <div class="dropdown-menu" id="dropdownMenu">
+                                <div class="options-list" id="optionsList">
+                                    <div class="option-item" data-value="Income Tax Return (ITR)">Income Tax Return (ITR)</div>
+                                    <div class="option-item" data-value="GST Services">GST Services</div>
+                                    <div class="option-item" data-value="TDS Services">TDS Services</div>
+                                    <div class="option-item" data-value="Notice / Compliance Support">Notice / Compliance Support</div>
+                                    <div class="option-item" data-value="Other Advisory">Other Advisory</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="serviceError" class="error-message">Please select a service from the list.</div>
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" id="consent" name="Consent To Contact" class="mt-1 w-4 h-4 rounded border-gray-300 text-navy focus:ring-gold cursor-pointer" required>
+                            <span class="text-xs text-gray-500 leading-tight">I hereby authorize Mk FinServ to contact me regarding my query. I agree to receive communications via Phone/WhatsApp.</span>
+                        </label>
+                        <div id="consentError" class="error-message">You must provide consent to proceed.</div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="gold-button w-full text-navy font-extrabold py-4 mt-2 rounded-xl shadow-lg flex items-center justify-center gap-2">
+                        <span>Submit Request</span>
+                        <i class="ph-bold ph-paper-plane-tilt"></i>
+                    </button>
+                </form>
+                <div id="formStatus" class="hidden mt-6 p-4 rounded-xl text-center font-medium"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Toast -->
+    <div id="successToast" class="fixed top-10 left-1/2 -translate-x-1/2 z-[10000]
+        bg-green-600 text-white
+        w-[92%] max-w-md md:w-auto
+        px-5 md:px-8 py-4
+        rounded-2xl shadow-2xl
+        transition-all duration-500
+        opacity-0 translate-y-[-100%]
+        flex items-center gap-3">
+        <i class="ph-bold ph-check-circle text-2xl shrink-0"></i>
+        <div>
+            <p class="font-bold text-base md:text-lg">
+                Thanks for Reaching Out to MK FinServ
+            </p>
+            <p class="text-sm opacity-90">
+                We'll contact you soon to assist with your requirements.
+            </p>
+        </div>
+    </div>
+
     <!-- Final CTA -->
-    <section id="contact" class="py-24 bg-blue-600 relative overflow-hidden">
+    <section id="contact" class="py-24 bg-[#002147] relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path d="M0 100 C 20 0 50 0 100 100" stroke="white" fill="transparent" />
@@ -352,8 +750,8 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 text-center relative z-10 text-white">
             <h2 class="text-4xl font-bold mb-6">Build your growth on a compliant foundation.</h2>
-            <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">Ready to experience technology-enabled compliance? Let's discuss your roadmap.</p>
-            <button class="px-10 py-5 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 transition shadow-2xl">
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Ready to experience technology-enabled compliance? Let's discuss your roadmap.</p>
+            <button onclick="openForm()" class="px-10 py-5 bg-[#FFC107] text-[#002147] rounded-full font-bold hover:bg-white hover:text-[#002147] transition shadow-2xl">
                 Talk to Us Today
             </button>
         </div>
@@ -365,24 +763,50 @@
             <div class="grid lg:grid-cols-4 gap-12">
                 <div class="col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="logo.jpg" alt="Mk Logo" class="w-8 h-8 rounded bg-white p-0.5 object-cover" onerror="this.style.display='none'">
-                        <span class="text-lg font-bold tracking-tight text-white uppercase">FinServ Group</span>
+                        <img src="logo.jpg" alt="Logo" class="w-11 h-11 rounded-full border-2 border-[#FFC107] p-0 shadow-lg logo-img">
+                        <span class="text-2xl font-bold tracking-tight block leading-none text-[#FFC107]">
+                            Mk FinServ™
+                        </span>
                     </div>
                     <p class="max-w-sm mb-8 leading-relaxed">
                         Mk FinServ Group™ is a structured compliance and advisory firm focused on delivering clarity and disciplined execution in India’s evolving regulatory environment.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-white transition"><i data-lucide="linkedin"></i></a>
-                        <a href="#" class="hover:text-white transition"><i data-lucide="twitter"></i></a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/mkfinservgroup"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/mkfinservgroup/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@MkFinServGroup"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-4 text-sm">
-                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#approach" class="hover:text-white transition">Approach</a></li>
-                        <li><a href="#process" class="hover:text-white transition">Process</a></li>
-                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#services" class="hover:text-[#FFC107] transition">Services</a></li>
+                        <li><a href="#approach" class="hover:text-[#FFC107] transition">Approach</a></li>
+                        <li><a href="#pricing" class="hover:text-[#FFC107] transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-[#FFC107] transition">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -390,21 +814,49 @@
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start space-x-3">
                             <i data-lucide="mail" class="w-4 h-4 mt-0.5"></i>
-                            <span>advisory@mkfinserv.com</span>
+                            <span>support@mkfinservgroup.com</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <i data-lucide="map-pin" class="w-4 h-4 mt-0.5"></i>
-                            <span>Financial District, Mumbai / Bangalore</span>
+                            <span>Guntur / Bangaluru</span>
                         </li>
                     </ul>
                 </div>
+            </div>                
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-t border-white/10 pt-10 mt-20">
+            <div class="max-w-3xl mx-auto text-center text-[11px] md:text-xs text-gray-400 leading-relaxed space-y-4 px-4">
+                <p>
+                    Mk FinServ™ is a brand operated by
+                    <span class="text-white font-semibold">Mk FinServ Group™</span>,
+                    a Sole Proprietorship firm providing income tax filing, financial compliance, and advisory support services.
+                </p>
+                <p>
+                    <span class="text-white font-medium">Disclaimer:</span>
+                    We are an independent consultancy firm and are not affiliated with, endorsed by, or authorized by any government authority, statutory body, or regulatory agency.
+                </p>
             </div>
-            <div class="mt-20 pt-8 border-t border-slate-900 text-xs text-center flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p>&copy; 2024 Mk FinServ Group. All rights reserved.</p>
-                <p class="text-slate-600">Compliance & Advisory with Discipline.</p>
+
+            <!-- Bottom Bar -->
+            <div class="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-5 text-[10px] text-gray-500 uppercase tracking-[0.18em] px-4">
+                <div class="text-center md:text-left">
+                    © 2026 Mk FinServ Group™. All Rights Reserved.
+                </div>
+                <div class="px-4 py-1.5 border border-white/20 rounded-md text-gray-300 tracking-normal text-[11px]">
+                    MSME Registered | UDYAM-KR-03-0657590
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://whatsapp.com/channel/0029Vb7JDYyGZNCjB3bosO2T"
+    target="_blank"
+    class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-2xl transition duration-300 flex items-center justify-center hover:scale-105 z-50">
+        <i class="ph ph-whatsapp-logo text-white text-3xl"></i>
+    </a>
 
     <script>
         // Initialize Lucide Icons
@@ -423,9 +875,137 @@
         // Mobile Menu Toggle logic
         const mobileBtn = document.getElementById('mobile-menu-button');
         mobileBtn.addEventListener('click', () => {
-            // Implementation of menu overlay can be added here
             console.log('Mobile menu requested');
         });
+
+        // ========== FORM MODAL FUNCTIONS ==========
+        function openForm() {
+            document.getElementById('formModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('formStatus').classList.add('hidden');
+        }
+
+        function closeForm() {
+            document.getElementById('formModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            resetForm();
+        }
+
+        function closeModalOnOutsideClick(e) {
+            if (e.target.id === 'formModal') closeForm();
+        }
+
+        const trigger = document.getElementById('dropdownTrigger');
+        const menu = document.getElementById('dropdownMenu');
+        const selectedText = document.getElementById('selectedText');
+        const hiddenInput = document.getElementById('serviceHiddenInput');
+        const options = document.querySelectorAll('.option-item');
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const val = option.dataset.value;
+                selectedText.innerText = val;
+                selectedText.classList.remove('text-slate-400');
+                selectedText.classList.add('text-slate-800');
+                hiddenInput.value = val;
+                menu.classList.remove('active');
+                document.getElementById('serviceError').style.display = 'none';
+                trigger.classList.remove('error-border');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        function resetForm() {
+            const form = document.getElementById('callbackForm');
+            form.reset();
+            selectedText.innerText = 'Select a service';
+            selectedText.classList.add('text-slate-400');
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(err => err.style.display = 'none');
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => input.classList.remove('error-border'));
+        }
+
+        document.getElementById('phone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+
+        function validateField(id, regex, errorId) {
+            const field = document.getElementById(id);
+            const error = document.getElementById(errorId);
+            const val = field.value.trim();
+            let isRepetitive = false;
+            if (id === 'phone' && val.length === 10) {
+                isRepetitive = /^(\d)\1{9}$/.test(val);
+            }
+            const isValid = regex.test(val) && !isRepetitive;
+            if (!isValid) {
+                field.classList.add('error-border');
+                error.style.display = 'block';
+            } else {
+                field.classList.remove('error-border');
+                error.style.display = 'none';
+            }
+            return isValid;
+        }
+
+        document.getElementById('callbackForm').addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const isFNameValid = validateField('firstName', /^[a-zA-Z\s]{3,}$/, 'firstNameError');
+            const isLNameValid = validateField('lastName', /^[a-zA-Z\s]{1,}$/, 'lastNameError');
+            const isPhoneValid = validateField('phone', /^[0-9]{10}$/, 'phoneError');
+            const isEmailValid = validateField('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'emailError');
+            const isServiceValid = !!hiddenInput.value;
+            if (!isServiceValid) {
+                document.getElementById('serviceError').style.display = 'block';
+                trigger.classList.add('error-border');
+            }
+            const consent = document.getElementById('consent');
+            if (!consent.checked) document.getElementById('consentError').style.display = 'block';
+            if (!isFNameValid || !isLNameValid || !isPhoneValid || !isEmailValid || !isServiceValid || !consent.checked) return;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<div class="animate-spin rounded-full h-5 w-5 border-2 border-navy border-t-transparent mr-2"></div> Sending...';
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: 'POST',
+                    body: new FormData(event.target),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    closeForm();
+                    showSuccess();
+                }
+            } catch (error) {
+                console.error("Submission error:", error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Submit Request</span><i class="ph-bold ph-paper-plane-tilt"></i>';
+            }
+        });
+
+        function showSuccess() {
+            const toast = document.getElementById('successToast');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translate(-50%, 0)';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translate(-50%, -100%)';
+            }, 5000);
+        }
     </script>
 </body>
 </html>
