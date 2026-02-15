@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mk FinServ Group™ | Tech-Enabled Compliance & Advisory</title>
+    <meta name="description" content="Premium tax and compliance advisory for professionals, freelancers, and growing businesses. Structured, transparent, and tech-driven.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            /* Colors mapped exactly from the attached screenshots */
+            --brand-deep: #002147; /* Navy Blue from screenshot */
+            --brand-accent: #FFC107; /* Gold from screenshot */
+            --brand-text: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--brand-text);
+            background-color: #ffffff;
+        }
+
+        .glass-nav {
+            background: var(--brand-deep);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, var(--brand-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Hero styling to match screenshot background */
+        .hero-bg {
+            background-color: var(--brand-deep);
+            color: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 55px;
+            height: 55px;
+            background-color: hsl(142, 92%, 47%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .whatsapp-float:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                right: 15px;
+                bottom: 15px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .w-11 {
+            width: 3.0rem;
+        }
+        .h-11 {
+            height: 3.0rem;
+        }
+        .p-0{
+            padding: 1px;
+        }
+        .logo-img {
+            object-fit: cover;
+            background: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpg" alt="Logo" class="w-11 h-11 rounded-full border-2 border-[#FFC107] p-0 shadow-lg logo-img">
+                    <div>
+                        <span class="text-2xl font-bold tracking-tight block leading-none text-[#FFC107]">
+                            Mk FinServ™
+                        </span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] opacity-80 text-white">
+                            Technology-Enabled Compliance & Advisory
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/90">
+                    <a href="#about" class="hover:text-[#FFC107] transition">About</a>
+                    <a href="#services" class="hover:text-[#FFC107] transition">Services</a>
+                    <a href="#approach" class="hover:text-[#FFC107] transition">Our Tech</a>
+                    <a href="#process" class="hover:text-[#FFC107] transition">Process</a>
+                    <a href="#contact" class="bg-[#FFC107] text-[#002147] px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-[#002147] hover:border hover:border-[#002147] transition duration-300">Book Consultation</a>
+
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="flex justify-center mb-8">
+                    <img src="logo.jpg" alt="Mk FinServ Group Logo" class="w-20 h-20 rounded-full border-2 border-[#FFC107] p-1 shadow-lg" onerror="this.style.display='none'">
+                </div>
+                <span class="inline-block py-1 px-3 rounded bg-[#FFC107]/20 text-[#FFC107] text-xs font-bold tracking-widest uppercase mb-6">Premium Compliance Advisory</span>
+                <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    Your Strategic Compliance Partner for <span class="text-[#FFC107]">Professionals</span> <br class="hidden lg:block"> <span class="text-[#FFC107]"> and Growing</span> Enterprises.
+                </h1>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    Tech-enabled tax and compliance advisory for professionals, freelancers, and growing businesses. Structured execution without the chaos.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-[#FFC107] text-[#002147] rounded-full font-semibold hover:bg-[#E6B000] transition shadow-lg flex items-center justify-center group">
+                        Book a Consultation
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition"></i>
+                    </a>
+
+                    <a href="#services" class="px-8 py-4 border border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition">
+                        Explore Business Plans
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Positioning -->
+    <section class="py-20 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-[#002147] mb-6">Beyond Just Filing Returns.</h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        At Mk FinServ, we build structured compliance systems that help you stay confident, compliant, and growth-ready.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-[#FFC107]/20 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-[#002147]"></i></div>
+                            <p class="text-slate-700 font-medium">Clarity and transparency in every step.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-[#FFC107]/20 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-[#002147]"></i></div>
+                            <p class="text-slate-700 font-medium">No shortcuts. No last-minute panic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-6 bg-slate-50 rounded-xl">
+                            <p class="text-3xl font-bold text-[#002147] mb-1">100%</p>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">Digital Onboarding</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-xl">
+                            <p class="text-3xl font-bold text-[#002147] mb-1">0</p>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">WhatsApp Chaos</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-xl">
+                            <p class="text-3xl font-bold text-[#002147] mb-1">24/7</p>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">Secure Access</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-xl">
+                            <p class="text-3xl font-bold text-[#002147] mb-1">10X</p>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">Better Efficiency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-[#002147] mb-4">Ecosystem Tailored for You</h2>
+                <p class="text-slate-600">Structured solutions for every scale of operation.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Segment 1 -->
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Professionals & Investors</h3>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li>• Salaried IT Professionals</li>
+                        <li>• Stock & F&O Traders</li>
+                        <li>• RSU & ESOP Holders</li>
+                        <li>• High-income Individuals</li>
+                    </ul>
+                </div>
+                <!-- Segment 2 -->
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Freelancers & Consultants</h3>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li>• IT & Digital Agencies</li>
+                        <li>• Marketing Consultants</li>
+                        <li>• Independent Service Pros</li>
+                        <li>• Remote International Workers</li>
+                    </ul>
+                </div>
+                <!-- Segment 3 -->
+                <div class="p-8 border border-slate-100 rounded-2xl bg-white hover:border-[#FFC107]/30 transition shadow-sm">
+                    <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 text-[#002147]">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Small Businesses & Startups</h3>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li>• Proprietorships & Partnerships</li>
+                        <li>• Private Limited Companies</li>
+                        <li>• Early-stage Founders</li>
+                        <li>• E-commerce Sellers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-[#002147] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-4">Our Expertise</h2>
+                <div class="h-1 w-20 bg-[#FFC107]"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Individual Tax</h4>
+                    <h3 class="text-2xl font-bold">Tax & Capital Gains</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Precision filing for complex portfolios, including foreign income and RSU reporting.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Business Operations</h4>
+                    <h3 class="text-2xl font-bold">Business Compliance</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">End-to-end GST, TDS, and ROC coordination to keep your entity running smoothly.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-[#FFC107] font-bold uppercase tracking-widest text-xs">Growth Strategy</h4>
+                    <h3 class="text-2xl font-bold">Advisory & Structuring</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Tax projections and business structure guidance to optimize your financial future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section -->
+    <section id="approach" class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC107]/10 rounded-full blur-3xl opacity-50"></div>
+                    <div class="relative bg-white border border-slate-100 p-8 rounded-3xl shadow-xl">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="shield-check" class="text-green-600"></i>
+                                    <span class="font-semibold">Secure Document Portal</span>
+                                </div>
+                                <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="bell" class="text-[#002147]"></i>
+                                    <span class="font-semibold">Automated Deadlines</span>
+                                </div>
+                                <span class="text-xs font-bold text-[#002147] bg-[#FFC107]/20 px-2 py-1 rounded">Tracking</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="refresh-cw" class="text-[#002147]"></i>
+                                    <span class="font-semibold">Transparent Updates</span>
+                                </div>
+                                <span class="text-xs font-bold text-[#002147] bg-[#FFC107]/20 px-2 py-1 rounded">Real-time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-[#002147] mb-6">Our Technology-Driven Approach</h2>
+                    <p class="text-lg text-slate-600 mb-8">We combine compliance expertise with structured systems to eliminate manual errors and communication gaps.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-2 text-slate-700">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
+                            <span>Digital onboarding</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-700">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
+                            <span>Secure portal</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-700">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
+                            <span>Automated reminders</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-700">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-[#FFC107]"></i>
+                            <span>Structured workflow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-[#002147] mb-4">How Our Process Works</h2>
+                <p class="text-slate-600">Simple. Transparent. Systematic.</p>
+            </div>
+            <div class="relative">
+                <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2"></div>
+                <div class="grid lg:grid-cols-5 gap-8">
+                    <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
+                        <h4 class="font-bold mb-2 text-sm">Consultation</h4>
+                        <p class="text-xs text-slate-500">Understanding requirements</p>
+                    </div>
+                    <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
+                        <h4 class="font-bold mb-2 text-sm">Onboarding</h4>
+                        <p class="text-xs text-slate-500">Digital documentation</p>
+                    </div>
+                    <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
+                        <h4 class="font-bold mb-2 text-sm">Execution</h4>
+                        <p class="text-xs text-slate-500">Structured compliance</p>
+                    </div>
+                    <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
+                        <h4 class="font-bold mb-2 text-sm">Reporting</h4>
+                        <p class="text-xs text-slate-500">Filing confirmation</p>
+                    </div>
+                    <div class="relative bg-white p-6 rounded-2xl shadow-sm z-10 text-center">
+                        <div class="w-10 h-10 bg-[#002147] text-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
+                        <h4 class="font-bold mb-2 text-sm">Support</h4>
+                        <p class="text-xs text-slate-500">Ongoing advisory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Philosophy -->
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#002147] mb-8">Pricing Philosophy</h2>
+            <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                We believe compliance is not a commodity. Our plans are structured based on complexity, business size, and the level of advisory required. We operate with discipline — not shortcuts.
+            </p>
+            <div class="inline-flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-500">
+                <span class="px-4 py-2 bg-slate-100 rounded-full">No hidden fees</span>
+                <span class="px-4 py-2 bg-slate-100 rounded-full">Value-based pricing</span>
+                <span class="px-4 py-2 bg-slate-100 rounded-full">Professional Grade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact" class="py-24 bg-[#002147] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100" stroke="white" fill="transparent" />
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10 text-white">
+            <h2 class="text-4xl font-bold mb-6">Build your growth on a compliant foundation.</h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Ready to experience technology-enabled compliance? Let's discuss your roadmap.</p>
+            <button class="px-10 py-5 bg-[#FFC107] text-[#002147] rounded-full font-bold hover:bg-white hover:text-[#002147] transition shadow-2xl">
+                Talk to Us Today
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-20 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="logo.jpg" alt="Logo" class="w-11 h-11 rounded-full border-2 border-[#FFC107] p-0 shadow-lg logo-img">
+                        <span class="text-2xl font-bold tracking-tight block leading-none text-[#FFC107]">
+                            Mk FinServ™
+                        </span>
+                    </div>
+                    <p class="max-w-sm mb-8 leading-relaxed">
+                        Mk FinServ Group™ is a structured compliance and advisory firm focused on delivering clarity and disciplined execution in India’s evolving regulatory environment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/mkfinservgroup"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/mkfinservgroup/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@MkFinServGroup"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white hover:text-gold transition-colors"
+                            title="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#services" class="hover:text-[#FFC107] transition">Services</a></li>
+                        <li><a href="#approach" class="hover:text-[#FFC107] transition">Approach</a></li>
+                        <li><a href="#process" class="hover:text-[#FFC107] transition">Process</a></li>
+                        <li><a href="#" class="hover:text-[#FFC107] transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="mail" class="w-4 h-4 mt-0.5"></i>
+                            <span>support@mkfinservgroup.com</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 mt-0.5"></i>
+                            <span>Guntur / Bangaluru</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>                
+        </div>
+        <br></br>
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-10">
+            <!-- Brand & Disclaimer -->
+            <div class="max-w-3xl mx-auto text-center text-[11px] md:text-xs text-gray-400 leading-relaxed space-y-4 px-4">
+                <p>
+                    Mk FinServ™ is a brand operated by
+                    <span class="text-white font-semibold">Mk FinServ Group™</span>,
+                    a Sole Proprietorship firm providing income tax filing, financial compliance, and advisory support services.
+                </p>
+                <p>
+                    <span class="text-white font-medium">Disclaimer:</span>
+                    We are an independent consultancy firm and are not affiliated with, endorsed by, or authorized by any government authority, statutory body, or regulatory agency.
+                </p>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-5 text-[10px] text-gray-500 uppercase tracking-[0.18em] px-4">
+                <div class="text-center md:text-left">
+                    © 2026 Mk FinServ Group™. All Rights Reserved.
+                </div>
+
+                <div class="px-4 py-1.5 border border-white/20 rounded-md text-gray-300 tracking-normal text-[11px]">
+                    MSME Registered | UDYAM-KR-03-0657590
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://whatsapp.com/channel/0029Vb7JDYyGZNCjB3bosO2T"
+    target="_blank"
+    class="fixed bottom-6 right-6 bg-[#25D366] 
+            p-3 rounded-full shadow-2xl 
+            transition duration-300 
+            flex items-center justify-center 
+            hover:scale-105 z-50">
+
+        <img src="/assets/icons/whatsapp.svg"
+            alt="WhatsApp"
+            class="w-6 h-6">
+    </a>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Simple Smooth Scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile Menu Toggle logic
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        mobileBtn.addEventListener('click', () => {
+            console.log('Mobile menu requested');
+        });
+    </script>
+</body>
+</html>

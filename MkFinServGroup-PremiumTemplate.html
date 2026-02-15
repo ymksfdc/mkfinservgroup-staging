@@ -13,24 +13,26 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         :root {
-            --brand-deep: #0f172a;
-            --brand-accent: #3b82f6;
+             /* Colors mapped exactly from the attached screenshots */
+            --brand-deep: #002147; /* Navy Blue from screenshot */
+            --brand-accent: #FFC107; /* Gold from screenshot */
+            --brand-text: #1e293b;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: #1e293b;
+            color: var(--brand-text);
             background-color: #ffffff;
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--brand-deep);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--brand-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -43,6 +45,13 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
+
+        /* Hero styling to match screenshot background */
+        .hero-bg {
+            background-color: var(--brand-deep);
+            color: white;
+        }
+
     </style>
 </head>
 <body class="antialiased">
